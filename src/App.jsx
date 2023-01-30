@@ -13,10 +13,9 @@ function App() {
   }
 
   function createTodo(){
-    let todo = new Todo({
+    setTodos(todos.push(new Todo({
       text: todoText,
-      check: todoCheck
-    })
+    })))
   }
 
   return (
@@ -29,7 +28,7 @@ function App() {
 
     <div className="search">
     <input onChange={getInputText} type="text" name="" id="" placeholder='Adicione uma nova tarefa'/>
-    <button className='createBtn' onClick={createTodo}>Criar</button>
+    <button onClick={createTodo} className='createBtn' onClick={createTodo}>Criar</button>
     </div>
 
     <main>

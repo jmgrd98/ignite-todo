@@ -1,9 +1,9 @@
-import React from 'react'
+import {React, useState} from 'react'
 import { TodoStyle } from './style'
 
 export default function Todo({todoText,}) {
 
-    // const [todoCheck, setTodoCheck] = useState(false)
+    const [todoCheck, setTodoCheck] = useState(false)
 
 
 function checkTodo(){
@@ -14,7 +14,7 @@ function checkTodo(){
   return (
     <TodoStyle>
         
-        <button className='checkBtn'></button>
+        <button onClick={checkTodo} className={todoCheck ? 'checkBtnActive' : 'checkBtn'}></button>
         <p>{todoText}</p>
         <button className='trashBtn'></button>
 

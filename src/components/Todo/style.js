@@ -19,6 +19,13 @@ export const TodoStyle = styled.section`
         width: 25px;
     }
 
+    .checkBtnActive{
+        border-radius: 100%;
+        height: 25px;
+        width: 25px;
+        background-color: var(--secondary);
+    }
+
     .trashBtn{
         background-color: transparent;
     }
