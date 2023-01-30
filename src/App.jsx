@@ -1,10 +1,23 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import Todo from './components/Todo/Todo'
 import './App.css'
 import {AiFillRocket} from 'react-icons/ai'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [todos, setTodos] = useState([])
+  const [todoText, setTodotext] = useState('')
+
+  function getInputText(e){
+   setTodotext(e.target.value)
+  }
+
+  function createTodo(){
+    let todo = new Todo({
+      text: todoText,
+      check: todoCheck
+    })
+  }
 
   return (
     <div className="App">
@@ -15,28 +28,33 @@ function App() {
     </div>
 
     <div className="search">
-    <input type="text" name="" id="" placeholder='Adicione uma nova tarefa'/>
-    <button type='click'>Criar</button>
+    <input onChange={getInputText} type="text" name="" id="" placeholder='Adicione uma nova tarefa'/>
+    <button className='createBtn' onClick={createTodo}>Criar</button>
     </div>
 
     <main>
 
     <header>
-      <div className="createdTodos">
+      <div className="headerSection">
       <h2>Tarefas criadas</h2>
       <p>0</p>
       </div>
 
-    <div className="completedTodos">
-      <h2>Concluídas</h2>
+    <div className="headerSection">
+      <span>Concluídas</span>
       <p>1 de 5</p>
       </div>
 
       </header>
-      
+
     <hr />
 
     </main>
+
+    <Todo
+    todoText='Hello!'
+    
+    />
 
     </div>
   )

@@ -42,7 +42,7 @@ span{
 .search{
   display: flex;
   gap: 5px;
-  width: 100%;
+  width: 80%;
   justify-content: center;
 }
 
@@ -62,6 +62,7 @@ button{
   width: 30%;
   font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 main{
@@ -71,27 +72,33 @@ main{
   gap: 50px;
 }
 
-.createdTodos{
+header{
+  display: flex;
+  gap: 100px;
+}
+
+.headerSection{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 100%;
+  color: var(--primary);
 }
 
-.completedTodos{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-p {
+.headerSection span{
   color: var(--secondary);
   font-weight: bold;
 }
 
+p {
+  color: white;
+  font-weight: bold;
+  font-size: .8rem;
+  background-color: #212121;
+  padding: 5px;
+  border-radius: 10px;
+}
+
 h2{
-  color: var(--secondary);
   font-size: 1rem;
 }
