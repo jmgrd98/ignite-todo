@@ -8,6 +8,8 @@ function App() {
   const [todos, setTodos] = useState([])
   const [todoText, setTodoText] = useState('')
   const [inputText, setInputText] = useState('')
+  const [totalTodos, setTotalTodos] = useState(0)
+  const [checkedTodos, setCheckedTodos] = useState(0)
 
   function getInputText(e){
    setTodoText(e.target.value)
@@ -17,6 +19,7 @@ function App() {
   function createTodo(){
     setTodos([...todos, todoText])
     setInputText('')
+    setTotalTodos(totalTodos+1)
   }
 
   return (
@@ -40,12 +43,12 @@ function App() {
     <header>
       <div className="headerSection">
       <h2>Tarefas criadas</h2>
-      <p>0</p>
+      <p>{totalTodos}</p>
       </div>
 
     <div className="headerSection">
       <span>Concluídas</span>
-      <p>1 de 5</p>
+      <p>{checkedTodos} de {totalTodos}</p>
       </div>
 
       </header>

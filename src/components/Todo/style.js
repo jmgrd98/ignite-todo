@@ -24,7 +24,15 @@ export const TodoStyle = styled.section`
         height: 25px;
         width: 25px;
         background-color: var(--secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
+    /* .checkIcon{
+        width: 100%;
+        height: 100%;
+    } */
 
     .trashBtn{
         background-color: transparent;
