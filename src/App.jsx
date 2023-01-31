@@ -10,6 +10,7 @@ function App() {
   const [inputText, setInputText] = useState('')
   const [totalTodos, setTotalTodos] = useState(0)
   const [checkedTodos, setCheckedTodos] = useState(0)
+  const [data, setData] = useState(null)
 
   function getInputText(e){
    setTodoText(e.target.value)
@@ -20,6 +21,10 @@ function App() {
     setTodos([...todos, todoText])
     setInputText('')
     setTotalTodos(totalTodos+1)
+  }
+
+  function handleData(newData){
+    setData(newData)
   }
 
   return (
@@ -34,7 +39,8 @@ function App() {
     <input
     onChange={getInputText}
     value={inputText}
-    type="text" name="" id="" placeholder='Adicione uma nova tarefa'/>
+    type="text"
+    placeholder='Adicione uma nova tarefa'/>
     <button className='createBtn' onClick={createTodo}>Criar</button>
     </div>
 
@@ -48,7 +54,7 @@ function App() {
 
     <div className="headerSection">
       <span>Concluídas</span>
-      <p>{checkedTodos} de {totalTodos}</p>
+      <p>{data} de {totalTodos}</p>
       </div>
 
       </header>
@@ -61,6 +67,7 @@ function App() {
     return (
     <Todo
     todoText={todo}
+    sendData={handleData}
     />
     )}
   )
