@@ -6,16 +6,17 @@ import {AiFillRocket} from 'react-icons/ai'
 function App() {
 
   const [todos, setTodos] = useState([])
-  const [todoText, setTodotext] = useState('')
+  const [todoText, setTodoText] = useState('')
+  const [inputText, setInputText] = useState('')
 
   function getInputText(e){
-   setTodotext(e.target.value)
+   setTodoText(e.target.value)
+   setInputText(e.target.value)
   }
 
   function createTodo(){
-    setTodos(todos.push(new Todo({
-      text: todoText,
-    })))
+    setTodos([...todos, todoText])
+    setInputText('')
   }
 
   return (
@@ -27,8 +28,11 @@ function App() {
     </div>
 
     <div className="search">
-    <input onChange={getInputText} type="text" name="" id="" placeholder='Adicione uma nova tarefa'/>
-    <button onClick={createTodo} className='createBtn' onClick={createTodo}>Criar</button>
+    <input
+    onChange={getInputText}
+    value={inputText}
+    type="text" name="" id="" placeholder='Adicione uma nova tarefa'/>
+    <button className='createBtn' onClick={createTodo}>Criar</button>
     </div>
 
     <main>
@@ -50,10 +54,14 @@ function App() {
 
     </main>
 
+    {todos.map(todo => {
+    return (
     <Todo
-    todoText='Hello!'
-    
+    todoText={todo}
     />
+    )}
+  )
+}
 
     </div>
   )
